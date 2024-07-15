@@ -1,0 +1,22 @@
+{
+  "name": "@invoice-trading/database",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "scripts": {
+    "prisma": "npx prisma",
+    "generate": "npx prisma generate"
+  },
+  "nx": {
+    "targets": {
+      "generate": {
+        "inputs": [
+          "{projectRoot}/schema.prisma"
+        ],
+        "outputs": [
+          "{workspaceRoot}/libs/database/generated"
+        ]
+      }
+    }
+  }
+}

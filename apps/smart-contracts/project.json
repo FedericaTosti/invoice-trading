@@ -1,0 +1,35 @@
+{
+  "name": "smart_contracts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/smart-contracts/src",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "anchor build",
+        "cwd": "apps/smart-contracts"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "anchor deploy",
+        "env": {
+          "RUST_LOG": "solana=info"
+        }
+      }
+    },
+    "blockchain": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "solana-test-validator",
+        "cwd": "apps/smart-contracts",
+        "env": {
+          "RUST_LOG": "solana=info"
+        }
+      }
+    }
+  },
+  "tags": []
+}
